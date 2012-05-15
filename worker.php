@@ -18,8 +18,7 @@ while (true) {
     $task_name = $json->task_name;
     $params = $json->params;
 
+    # calls the task: Task::$task_name($params)...
     call_user_func(array($tasks, $task_name), $params);
-
-    usleep(500000); # 500 millisecond sleep...
 }
 ?>
