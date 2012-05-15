@@ -1,18 +1,19 @@
 ## A simple, redis powered task queue for PHP.
 
-Redis will act as the broker.
+Redis will act as the broker. Make sure that is running and the settings
+in `redis.php` are appropriate for your setup.
+
+The worker is ran with `php worker.php`.
 
 Some example producers are in the script `add_task.php`, try adding
 example tasks to the queue by running `php add_task.php`.
-
-The worker is ran with `php worker.php`.
 
 The task definition file is in `tasks.php`.
 
 ### Adding and running a new task.
 
 Let's add a task called `scare_me` that will wait 5 seconds, and then echo
-'BOO! I am going to eat you {name}!'. In `tasks.php`:
+*BOO! I am going to eat you {name}!*. In `tasks.php`:
 
 ```php
 class Tasks {
