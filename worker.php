@@ -1,19 +1,25 @@
 <?
-include_once('tasks.php');
 
-$queue = 'phqueue';
+include_once 'redis.php';
+include_once 'tasks.php';
 
-$redis = new Predis\Client('redis://127.0.0.1:6379');
+
+$tasks = new Tasks();
 
 while (true) {
-    $data = $redis->blpop($queue);
+    # BLPOP will block until it gets an item..
+    $data = $redis->blpop($queue, 0);
 
     if (!$data) {
         continue;
     }
 
-    $data = json_decode($data);
+    $json = json_decode($data[1]); # grab results...
+    $task_name = $json->task_name;
+    $params = $json->params;
 
+    call_user_func(array($tasks, $task_name), $params);
 
+    usleep(500000); # 500 millisecond sleep...
 }
 ?>
