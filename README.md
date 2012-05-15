@@ -15,7 +15,7 @@ The task definition file is in `tasks.php`.
 Let's add a task called `scare_me` that will wait 5 seconds, and then echo
 *BOO! I am going to eat you {name}!*. In `tasks.php`:
 
-```php
+```ruby
 class Tasks {
     
     # ... other tasks here...
@@ -35,7 +35,7 @@ Let's get the worker running in the background:
 
 Now, let's add the task to the queue by running some code like so:
 
-```php
+```ruby
 require_once 'tasks.php';
 
 add_task('scare_me', array('name' => 'Bryan'));
