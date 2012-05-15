@@ -1,12 +1,12 @@
-## A simple, redis powered task queue for PHP.
+## A simple, Redis powered task queue in PHP.
 
-Redis will act as the broker. Make sure that is running and the settings
+Redis will act as the **broker**. Make sure that is running and the settings
 in `redis.php` are appropriate for your setup.
 
-The worker is ran with `php worker.php`.
+The **worker** is ran with `php worker.php`.
 
-Some example producers are in the script `add_task.php`, try adding
-example tasks to the queue by running `php add_task.php`.
+Some example **producers** are in the script `add_task.php`, try adding
+some example tasks to the queue by running `php add_task.php`.
 
 The task definition file is in `tasks.php`.
 
@@ -31,9 +31,11 @@ class Tasks {
 
 Let's get the worker running in the background:
 
-```php worker.php```
+```
+php worker.php
+```
 
-Now, let's add the task to the queue by running some code like so:
+Now, let's add a task to the queue by running some code like so:
 
 ```ruby
 require_once 'tasks.php';
@@ -47,4 +49,6 @@ after 5 seconds. At that point, the worker will wait for another job.
 ### Scaling.
 
 If you need to do more tasks, run more workers! You might want to do
-something with supervisord and forking.
+something with supervisord and forking. Maybe some sort of bash script
+that lets you pass in arguments that control the number of workers, responds
+to HUP signals, and more. Wanna add it? :-)
