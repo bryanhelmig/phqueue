@@ -13,7 +13,10 @@ The task definition file is in `tasks.php`.
 ### Adding and running a new task.
 
 Let's add a task called `scare_me` that will wait 5 seconds, and then echo
-*BOO! I am going to eat you {name}!*. In `tasks.php`:
+**BOO! I am going to eat you {name}!** This is a pretty silly example, but
+should illustrate the process.
+
+In `tasks.php`:
 
 ```ruby
 class Tasks {
