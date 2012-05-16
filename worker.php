@@ -3,7 +3,6 @@
 include_once 'redis.php';
 include_once 'tasks.php';
 
-
 $tasks = new Tasks();
 
 while (true) {
@@ -21,4 +20,5 @@ while (true) {
     # calls the task: Task::$task_name($params)...
     call_user_func(array($tasks, $task_name), $params);
 }
+
 ?>
